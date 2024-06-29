@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-echo "FORMATTING CODE" && npm run format && git add -A
+echo "FORMATTING CODE" && npm run format && git add -u
 echo ""
 
 echo "LITING COMMIT" && npm run commit:lint "${1}"

@@ -15,7 +15,10 @@
     "dist/*"
   ],
   "scripts": {
+    "prebuild": "prisma generate",
     "build": "tsup",
+    "start": "tsup && prisma migrate deploy && prisma migrate deploy",
+    "dev": "tsup --watch",
     "prisma:generate": "prisma generate",
     "prisma:migrate:create": "prisma migrate dev --create-only"
   },
