@@ -1,0 +1,9 @@
+{
+  "name": "@agriness/typescript",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  }
+}
