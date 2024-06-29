@@ -18,7 +18,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   skipNodeModulesBundle: true,
-  bundle: false,
+  bundle: true,
   treeshake: true,
   tsconfig: 'tsconfig.json',
   esbuildOptions: (opt) => {

@@ -29,10 +29,12 @@
     "@prisma/client": "^5.16.1"
   },
   "peerDependencies": {
-    "@nestjs/common": "^10.3.9"
+    "@nestjs/common": "^10.3.9",
+    "reflect-metadata": "^0.2.0"
   },
   "devDependencies": {
     "@agriness/typescript": "*",
+    "@swc/core": "^1.6.6",
     "glob": "^10.4.2",
     "prisma": "^5.16.1",
     "tsup": "^8.1.0",
