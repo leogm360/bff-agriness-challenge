@@ -6,3 +6,6 @@ node_modules
 
 # Visaul Studio Code
 .vscode
+
+# Build Artifacts
+dist

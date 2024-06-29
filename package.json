@@ -8,6 +8,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
   "scripts": {
     "build": "npm run build --workspaces",
     "start": "npm run start --workspaces",
