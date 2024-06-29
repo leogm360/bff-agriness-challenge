@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# echo "FORMATTING CODE" && npm run format && git add -A
+
+# echo "LITING COMMIT" && npm run commit:lint "${1}"
