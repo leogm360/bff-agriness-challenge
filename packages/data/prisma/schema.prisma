@@ -21,7 +21,6 @@ model Batch {
   updatedAt DateTime @updatedAt @map("updated_at")
   animals   Animal[]
 
-  @@unique(fields: [code, name], name: "idx_unique_batch_code_name")
   @@map("batches")
 }
 

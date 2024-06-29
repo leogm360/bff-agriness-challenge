@@ -4,10 +4,15 @@ export default defineConfig({
   entry: ['./src/**/index.ts'],
   target: 'node20',
   format: ['cjs'],
-  external: ['@nestjs/common'],
+  external: [
+    '@nestjs/common',
+    '@nestjs/mapped-types',
+    'class-validator',
+    'class-transformer',
+  ],
   dts: {
     entry: {
-      'prisma/index': './src/prisma/index.ts',
+      'dtos/index': './src/dtos/index.ts',
     },
   },
   sourcemap: true,

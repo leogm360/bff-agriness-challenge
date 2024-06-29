@@ -1,10 +1,10 @@
 {
-  "name": "animals",
+  "name": "@agriness/animals",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "API Mock para animais do desafio da Agriness",
+  "author": "Leonardo Moraes",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -21,9 +21,13 @@
   },
   "dependencies": {
     "@agriness/data": "*",
+    "@agriness/domain": "*",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/mapped-types": "^2.0.5",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },

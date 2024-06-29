@@ -1,7 +1,7 @@
 {
   "name": "bff-agriness-challenge",
   "version": "0.0.1",
-  "description": "Implementação de BFF desafio agriness",
+  "description": "Implementação de BFF para o desafio da Agriness",
   "author": "Leonardo Moraes",
   "license": "MIT",
   "private": true,
