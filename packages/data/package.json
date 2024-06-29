@@ -1,0 +1,15 @@
+{
+  "name": "@agriness/data",
+  "version": "0.0.1",
+  "description": "Camada de dados do desafio agriness",
+  "author": "Leonardo Moraes",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "prisma:generate": "prisma generate"
+  }
+}

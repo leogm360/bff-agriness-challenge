@@ -16,7 +16,7 @@
     "lint": "npm run lint --workspaces",
     "test": "npm run test --workspaces",
     "test:cov": "npm run test:cov --workspaces",
-    "commit:lint": "commitelint --edit",
+    "commit:lint": "commitlint --edit",
     "prepare": "husky"
   },
   "devDependencies": {
