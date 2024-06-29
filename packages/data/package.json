@@ -4,10 +4,7 @@
   "description": "Camada de dados do desafio agriness",
   "author": "Leonardo Moraes",
   "license": "MIT",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
     "./prisma": {
       "import": "./dist/prisma/index.js",
       "require": "./dist/prisma/index.js",
@@ -32,7 +29,6 @@
     "@agriness/typescript": "*",
     "glob": "^10.4.2",
     "prisma": "^5.16.1",
-    "rollup-plugin-dts": "^6.1.1",
     "tsup": "^8.1.0",
     "typescript": "^5.5.2"
   }
