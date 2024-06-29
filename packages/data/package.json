@@ -10,7 +10,8 @@
     "dist/*"
   ],
   "scripts": {
-    "prisma:generate": "prisma generate"
+    "prisma:generate": "prisma generate",
+    "prisma:migrate:create": "prisma migrate dev --create-only"
   },
   "dependencies": {
     "@prisma/client": "^5.16.1"
