@@ -7,7 +7,17 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common';
+import {
+  FilterParams,
+  SortParams,
+  PaginationParams,
+} from '@agriness/core/decorators';
 import { CreateBatchDto, UpdateBatchDto } from '@agriness/domain/dtos';
+import {
+  FilteredFields,
+  SortedFields,
+  PaginatedFields,
+} from '@agriness/domain/types';
 import { BatchService } from './batch.service';
 
 @Controller('batch')
@@ -15,8 +25,12 @@ export class BatchController {
   constructor(private readonly batchService: BatchService) {}
 
   @Get()
-  public async getBatches() {
-    return this.batchService.getBatches();
+  public async getBatches(
+    @FilterParams(['name', 'code']) filter: FilteredFields,
+    @SortParams(['name', 'code']) sort: SortedFields,
+    @PaginationParams() pagination: PaginatedFields,
+  ) {
+    return this.batchService.getBatches(filter, sort, pagination);
   }
 
   @Get(':id')

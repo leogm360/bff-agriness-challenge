@@ -1,13 +1,27 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService, Batch } from '@agriness/data/prisma';
 import { CreateBatchDto, UpdateBatchDto } from '@agriness/domain/dtos';
+import {
+  FilteredFields,
+  SortedFields,
+  PaginatedFields,
+} from '@agriness/domain/types';
 
 @Injectable()
 export class BatchService {
   constructor(private readonly prisma: PrismaService) {}
 
-  public async getBatches(): Promise<Batch[]> {
-    return this.prisma.batch.findMany();
+  public async getBatches(
+    filter: FilteredFields,
+    sort: SortedFields,
+    pagination: PaginatedFields,
+  ): Promise<Batch[]> {
+    return this.prisma.batch.findMany({
+      where: { ...filter },
+      orderBy: { ...sort },
+      skip: pagination.offset,
+      take: pagination.limit,
+    });
   }
 
   public async getBatchById(id: string): Promise<Batch> {

@@ -1,11 +1,30 @@
 import { PrismaService, Animal } from '@agriness/data/prisma';
 import { CreateAnimalDto, UpdateAnimalDto } from '@agriness/domain/dtos';
+import {
+  FilteredFields,
+  SortedFields,
+  PaginatedFields,
+} from '@agriness/domain/types';
 
 export class AnimalService {
   constructor(private readonly prisma: PrismaService) {}
 
-  public async getAnimals(): Promise<Animal[]> {
-    return this.prisma.animal.findMany();
+  public async getAnimals(
+    filter: FilteredFields,
+    sort: SortedFields,
+    pagination: PaginatedFields,
+  ): Promise<Animal[]> {
+    return this.prisma.animal.findMany({
+      where: {
+        ...filter,
+      },
+      orderBy: {
+        ...sort,
+      },
+      include: { batch: true },
+      skip: pagination.offset,
+      take: pagination.limit,
+    });
   }
 
   public async getAnimalById(id: string): Promise<Animal> {

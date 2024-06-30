@@ -1,20 +1,17 @@
 {
-  "name": "@agriness/domain",
+  "name": "@agriness/core",
   "version": "0.0.1",
-  "description": "Camada de domínio de negócios do desafio agriness",
+  "description": "Camada de funcionalidades principais do desafio agriness",
   "author": "Leonardo Moraes",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    "./dtos": {
-      "import": "./dist/dtos/index.js",
-      "require": "./dist/dtos/index.js",
-      "types": "./dist/dtos/index.d.ts"
-    },
-    "./types": {
-      "types": "./dist/types/index.d.ts"
+    "./decorators": {
+      "import": "./dist/decorators/index.js",
+      "require": "./dist/decorators/index.js",
+      "types": "./dist/decorators/index.d.ts"
     }
   },
   "files": [
@@ -27,13 +24,10 @@
   },
   "peerDependencies": {
     "@nestjs/common": "^10.3.9",
-    "@nestjs/mapped-types": "^2.0.5",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.1",
-    "reflect-metadata": "^0.2.0"
+    "express": "^4.19.2"
   },
   "devDependencies": {
-    "@agriness/data": "*",
+    "@agriness/domain": "*",
     "@agriness/typescript": "*",
     "@swc/core": "^1.6.6",
     "prisma": "^5.16.1",

@@ -4,16 +4,10 @@ export default defineConfig({
   entry: ['./src/**/index.ts'],
   target: 'node20',
   format: ['cjs'],
-  external: [
-    '@nestjs/common',
-    '@nestjs/mapped-types',
-    'class-validator',
-    'class-transformer',
-  ],
+  external: ['@nestjs/common', 'express'],
   dts: {
     entry: {
-      'dtos/index': './src/dtos/index.ts',
-      'types/index': './src/types/index.ts',
+      'decorators/index': './src/decorators/index.ts',
     },
   },
   sourcemap: true,

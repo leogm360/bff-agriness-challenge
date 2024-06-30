@@ -1,0 +1,10 @@
+{
+  "extends": "@agriness/typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*.ts", "tsup.config.ts"]
+}

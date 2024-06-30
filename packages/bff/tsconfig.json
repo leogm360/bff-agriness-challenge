@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -10,6 +11,11 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "@configs": ["src/configs"],
+      "@infra/*": ["src/infra/*"],
+      "@use-cases/*": ["src/use-cases/*"]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
