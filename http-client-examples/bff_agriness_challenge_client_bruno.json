@@ -1,0 +1,310 @@
+{
+  "name": "bff_agriness_challenge",
+  "version": "1",
+  "items": [
+    {
+      "type": "folder",
+      "name": "Animals",
+      "items": [
+        {
+          "type": "http",
+          "name": "Get Animals",
+          "seq": 1,
+          "request": {
+            "url": "http://localhost:3002/animal",
+            "method": "GET",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Create Animals",
+          "seq": 3,
+          "request": {
+            "url": "http://localhost:3002/animal",
+            "method": "POST",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"name\": \"Brody\",\n  \"code\": \"SA-002\",\n  \"batchId\": \"d3a4128f-26c9-4ba5-afff-d848292362c5\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update Animals",
+          "seq": 4,
+          "request": {
+            "url": "http://localhost:3002/animal/:id",
+            "method": "PATCH",
+            "headers": [],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Get Animals By Id",
+          "seq": 2,
+          "request": {
+            "url": "http://localhost:3002/animal/:id",
+            "method": "GET",
+            "headers": [],
+            "params": [
+              {
+                "name": "id",
+                "value": "0be4485c-1175-417f-86fd-c9c83d2794a0",
+                "type": "path",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete Animals",
+          "seq": 5,
+          "request": {
+            "url": "http://localhost:3002/animal/:id",
+            "method": "DELETE",
+            "headers": [],
+            "params": [
+              {
+                "name": "id",
+                "value": "1bc9daaa-9db9-4fe1-b5be-b673a0bef552",
+                "type": "path",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Batches",
+      "items": [
+        {
+          "type": "http",
+          "name": "Get Batches",
+          "seq": 1,
+          "request": {
+            "url": "http://localhost:3002/batch",
+            "method": "GET",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Get Batches By Id",
+          "seq": 2,
+          "request": {
+            "url": "http://localhost:3002/batch/:id",
+            "method": "GET",
+            "headers": [],
+            "params": [
+              {
+                "name": "id",
+                "value": "d3a4128f-26c9-4ba5-afff-d848292362c5",
+                "type": "path",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Create Batches",
+          "seq": 3,
+          "request": {
+            "url": "http://localhost:3002/batch",
+            "method": "POST",
+            "headers": [],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"name\": \"Suinos A\",\n  \"code\": \"LOT-AN-2024-001\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Update Batches",
+          "seq": 4,
+          "request": {
+            "url": "http://localhost:3002/batch/:id",
+            "method": "PATCH",
+            "headers": [],
+            "params": [
+              {
+                "name": "id",
+                "value": "d3a4128f-26c9-4ba5-afff-d848292362c5",
+                "type": "path",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"code\": \"LOT-AN-2024-002\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "Delete Batches",
+          "seq": 5,
+          "request": {
+            "url": "http://localhost:3002/batch/:id",
+            "method": "DELETE",
+            "headers": [],
+            "params": [
+              {
+                "name": "id",
+                "value": "d3a4128f-26c9-4ba5-afff-d848292362c5",
+                "type": "path",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "activeEnvironmentUid": "GjW6lbxMCxMhFtyWtMXpn",
+  "environments": [
+    {
+      "variables": [],
+      "name": "dev"
+    }
+  ],
+  "brunoConfig": {
+    "version": "1",
+    "name": "bff_agriness_challenge",
+    "type": "collection",
+    "ignore": ["node_modules", ".git"],
+    "presets": {
+      "requestType": "http",
+      "requestUrl": "http://localhost:3002"
+    }
+  }
+}
