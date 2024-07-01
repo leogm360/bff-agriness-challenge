@@ -10,7 +10,5 @@ node_modules
 # Build Artifacts
 dist
 
-
-
-.nx/cache
-.nx/workspace-data
+# Docker (Volumes)
+postgres-data
