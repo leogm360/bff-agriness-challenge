@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
   "exports": {
     "./dtos": {
       "import": "./dist/dtos/index.js",

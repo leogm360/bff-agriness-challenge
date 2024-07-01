@@ -14,7 +14,9 @@
     "paths": {
       "@configs": ["src/configs"],
       "@infra/*": ["src/infra/*"],
-      "@use-cases/*": ["src/use-cases/*"]
+      "@use-cases/*": ["src/use-cases/*"],
+      "@utils": ["src/utils"],
+      "@types": ["src/types"]
     },
     "incremental": true,
     "skipLibCheck": true,

@@ -17,16 +17,21 @@
   "files": [
     "dist/*"
   ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
   "scripts": {
-    "prebuild": "prisma generate",
+    "prebuild": "npm run prisma:generate",
     "build": "tsup",
-    "start": "tsup && prisma migrate deploy && prisma migrate deploy",
     "dev": "tsup --watch",
     "prisma:generate": "prisma generate",
-    "prisma:migrate:create": "prisma migrate dev --create-only"
+    "prisma:migrate:create": "prisma migrate dev --create-only",
+    "prisma:migrate:deploy": "prisma migrate deploy"
   },
   "dependencies": {
-    "@prisma/client": "^5.16.1"
+    "@prisma/client": "^5.16.1",
+    "nestjs-prisma": "^0.23.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.3.9",

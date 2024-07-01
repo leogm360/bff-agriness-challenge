@@ -17,6 +17,10 @@
   "files": [
     "dist/*"
   ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
   "scripts": {
     "build": "tsup",
     "start": "tsup",

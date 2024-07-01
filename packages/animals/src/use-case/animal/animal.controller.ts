@@ -10,12 +10,14 @@ import {
 import {
   FilterParams,
   SortParams,
+  IncludeParams,
   PaginationParams,
 } from '@agriness/core/decorators';
 import { CreateAnimalDto, UpdateAnimalDto } from '@agriness/domain/dtos';
 import {
   FilteredFields,
   SortedFields,
+  IncludedFields,
   PaginatedFields,
 } from '@agriness/domain/types';
 import { AnimalService } from './animal.service';
@@ -28,14 +30,18 @@ export class AnimalController {
   public async getAnimals(
     @FilterParams(['name', 'code']) filter: FilteredFields,
     @SortParams(['name', 'code']) sort: SortedFields,
+    @IncludeParams(['batch']) include: IncludedFields,
     @PaginationParams() pagination: PaginatedFields,
   ) {
-    return this.animalService.getAnimals(filter, sort, pagination);
+    return this.animalService.getAnimals(filter, sort, include, pagination);
   }
 
   @Get(':id')
-  public async getAnimalById(@Param('id') id: string) {
-    return this.animalService.getAnimalById(id);
+  public async getAnimalById(
+    @Param('id') id: string,
+    @IncludeParams(['batch']) include: IncludedFields,
+  ) {
+    return this.animalService.getAnimalById(id, include);
   }
 
   @Post()

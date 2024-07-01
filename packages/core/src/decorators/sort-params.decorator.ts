@@ -7,26 +7,24 @@ import { Sort, SortedFields, SortOrder } from '@agriness/domain/types';
 import { Request } from 'express';
 
 export const SortParams = createParamDecorator<
-  string[],
+  string[] | undefined,
   ExecutionContext,
-  SortedFields
->((sortFields, ctx) => {
+  SortedFields[]
+>((canSortFields, ctx) => {
   const request = ctx
     .switchToHttp()
     .getRequest<Request<unknown, unknown, unknown, Sort | undefined>>();
   const sort = request.query?.sort;
 
   if (!sort) {
-    return sortFields.reduce(
-      (acc, field) => ({
-        ...acc,
-        [field]: 'asc',
-      }),
-      {} as SortedFields,
-    );
+    return [];
   }
 
-  const toSort = sort.split(',').reduce((acc, sort) => {
+  if (!canSortFields) {
+    return [];
+  }
+
+  const toSort = sort.split(',').map((sort) => {
     const [field, order] = sort.split(':');
 
     if (!field || !order) {
@@ -35,8 +33,14 @@ export const SortParams = createParamDecorator<
       );
     }
 
-    return { ...acc, [field]: order as SortOrder };
-  }, {} as SortedFields);
+    if (!canSortFields.includes(field)) {
+      throw new BadRequestException(
+        `Invalid sort ${field} field, it should be one of ${canSortFields}`,
+      );
+    }
+
+    return { [field]: order as SortOrder };
+  });
 
   return toSort;
 });

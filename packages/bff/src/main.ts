@@ -1,6 +1,8 @@
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe, Logger, INestApplication } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { INestApplication, ValidationPipe } from '@nestjs/common';
+import type { Config, ServerConfig } from '@agriness/domain/types';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -22,7 +24,15 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(3000);
+  const logger = new Logger('Bootstrap');
+
+  const configService = app.get<ConfigService<Config>>(ConfigService);
+
+  await app.listen(configService.get<ServerConfig>('server').port, async () => {
+    if (configService.get<ServerConfig>('server').nodeEnv !== 'prod') {
+      logger.debug(`Server is running on: ${await app.getUrl()}`);
+    }
+  });
 }
 
 bootstrap();

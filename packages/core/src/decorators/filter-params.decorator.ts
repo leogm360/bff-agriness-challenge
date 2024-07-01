@@ -12,25 +12,17 @@ import {
 import { Request } from 'express';
 
 export const FilterParams = createParamDecorator<
-  string[],
+  string[] | undefined,
   ExecutionContext,
-  FilteredFields
->((filterFields, ctx) => {
+  PrismaFilter | FilteredFields
+>((canFilterFields, ctx) => {
   const request = ctx
     .switchToHttp()
     .getRequest<Request<unknown, unknown, unknown, Filter | undefined>>();
   const q = request.query?.q;
 
   if (!q) {
-    return filterFields.reduce(
-      (acc, field) => ({
-        ...acc,
-        [field]: {
-          equals: '',
-        },
-      }),
-      {} as FilteredFields,
-    );
+    return {};
   }
 
   const orQueries: PrismaFilter[] = [];
@@ -38,7 +30,7 @@ export const FilterParams = createParamDecorator<
 
   const conditions = q.split(/\{(OR|AND)\}/);
 
-  let curBoolean = 'AND';
+  let curBoolean = 'OR';
 
   conditions.forEach((condition) => {
     if (condition === 'OR' || condition === 'AND') {
@@ -47,6 +39,12 @@ export const FilterParams = createParamDecorator<
     }
 
     const [field, rule, value] = condition.split(':') as [string, Rule, string];
+
+    if (canFilterFields && !canFilterFields.includes(field)) {
+      throw new BadRequestException(
+        `Field ${field} is not allowed to be filtered`,
+      );
+    }
 
     if (!field || !rule || !value) {
       throw new BadRequestException(
@@ -60,6 +58,14 @@ export const FilterParams = createParamDecorator<
       andQueries.push({ [field]: { [rule]: value } });
     }
   });
+
+  if (orQueries.length === 1 && andQueries.length === 0 && orQueries[0]) {
+    return orQueries[0];
+  }
+
+  if (andQueries.length === 1 && orQueries.length === 0 && andQueries[0]) {
+    return andQueries[0];
+  }
 
   return {
     OR: orQueries,

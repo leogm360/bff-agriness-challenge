@@ -12,7 +12,8 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@use-cases/*": ["./src/use-cases/*"]
+      "@use-cases/*": ["./src/use-cases/*"],
+      "@configs": ["./src/configs"]
     },
     "incremental": true,
     "skipLibCheck": true,
