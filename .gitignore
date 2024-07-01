@@ -12,3 +12,6 @@ dist
 
 # Docker (Volumes)
 postgres-data
+
+# Tests
+coverage

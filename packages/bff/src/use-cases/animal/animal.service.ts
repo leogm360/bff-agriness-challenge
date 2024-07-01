@@ -17,22 +17,22 @@ export class AnimalService {
   }
 
   async createAnimal(data: CreateAnimalDto): Promise<Animal> {
-    const batchByName = await this.animalHttpService.getAnimalsByName(
+    const animalByName = await this.animalHttpService.getAnimalsByName(
       data.name,
     );
-    const batchByCode = await this.animalHttpService.getAnimalsByCode(
+    const animalByCode = await this.animalHttpService.getAnimalsByCode(
       data.code,
     );
 
-    if (batchByName.length > 0) {
+    if (animalByName.length > 0) {
       throw new ConflictException(
-        `Batch with the name ${data.name} already exists`,
+        `Animal with the name ${data.name} already exists`,
       );
     }
 
-    if (batchByCode.length > 0) {
+    if (animalByCode.length > 0) {
       throw new ConflictException(
-        `Batch with the code ${data.code} already exists`,
+        `Animal with the code ${data.code} already exists`,
       );
     }
 
@@ -40,6 +40,25 @@ export class AnimalService {
   }
 
   async updateAnimal(id: string, data: UpdateAnimalDto): Promise<Animal> {
+    const animalByName = await this.animalHttpService.getAnimalsByName(
+      data.name,
+    );
+    const animalByCode = await this.animalHttpService.getAnimalsByCode(
+      data.code,
+    );
+
+    if (animalByName.length > 0 && animalByName[0]?.id !== id) {
+      throw new ConflictException(
+        `Animal with the name ${data.name} already exists`,
+      );
+    }
+
+    if (animalByCode.length > 0 && animalByCode[0]?.id !== id) {
+      throw new ConflictException(
+        `Animal with the code ${data.code} already exists`,
+      );
+    }
+
     return this.animalHttpService.updateAnimal(id, data);
   }
 
